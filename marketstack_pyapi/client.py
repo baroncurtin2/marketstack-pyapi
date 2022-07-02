@@ -22,7 +22,8 @@ class BaseRestClient:
     __str__ = __repr__
 
     def _request(self, method: str, url: str, **kwargs):
-        response = self.session.request(method, f"{self.base_url}/{url}", headers=self.headers, **kwargs)
+        full_url = f"{self.base_url}/{url}"
+        response = self.session.request(method, full_url, headers=self.headers, **kwargs)
 
         try:
             response.raise_for_status()
