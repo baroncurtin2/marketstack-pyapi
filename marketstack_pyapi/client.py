@@ -43,7 +43,7 @@ class MarketStackRestClient(BaseRestClient):
         self.params = {"access_key": get_access_key(self.access_key)}
 
 
-def get_access_key(self, api_key: str = None) -> str:
+def get_access_key(api_key: str = None) -> str:
     # if api_key is a passed argument to MarketStackRestClient class
     # return it
     if api_key:
