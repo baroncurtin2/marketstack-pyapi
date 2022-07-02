@@ -38,9 +38,14 @@ class MarketStackRestClient(BaseRestClient):
     base_url: str = "https://api.marketstack.com/v1"
     access_key: str = ""
     params: dict = field(init=False)
+    headers: dict = field(init=False)
 
     def __attrs_post_init__(self) -> None:
         self.params = {"access_key": get_access_key(self.access_key)}
+        self.headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "marketstack-python-client",
+        }
 
 
 def get_access_key(api_key: str = None) -> str:
